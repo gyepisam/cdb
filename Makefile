@@ -318,3 +318,7 @@ makelib error.o open_read.o open_trunc.o error_str.o seek_set.o \
 seek_cur.o
 	./makelib unix.a error.o open_read.o open_trunc.o \
 	error_str.o seek_set.o seek_cur.o
+
+.PHONY: clean
+clean:
+	rm -f *.o *.a
