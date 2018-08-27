@@ -66,7 +66,7 @@ unsigned long numfound = 0;
 
 static struct cdb c;
 
-main()
+int main()
 {
   uint32 eod;
   uint32 klen;

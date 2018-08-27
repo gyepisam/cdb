@@ -58,7 +58,7 @@ void getnum(uint32 *num)
 
 char strnum[FMT_ULONG];
 
-main()
+int main()
 {
   uint32 eod;
   uint32 klen;

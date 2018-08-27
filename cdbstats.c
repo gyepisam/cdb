@@ -68,7 +68,7 @@ static struct cdb c;
 static unsigned long numrecords;
 static unsigned long numd[11];
 
-main()
+int main()
 {
   uint32 eod;
   uint32 klen;

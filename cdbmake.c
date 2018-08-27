@@ -36,7 +36,7 @@ inline void get(char *ch)
 
 static struct cdb_make c;
 
-main(int argc,char **argv)
+int main(int argc,char **argv)
 {
   unsigned int klen;
   unsigned int dlen;
@@ -46,7 +46,7 @@ main(int argc,char **argv)
   char ch;
 
   if (!*argv) die_usage();
-  
+
   if (!*++argv) die_usage();
   fn = *argv;
 
