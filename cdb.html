@@ -1,0 +1,85 @@
+<html>
+<body>
+<a href="djb.html">D. J. Bernstein</a>
+<br><a href="data.html">Data structures and program structures</a>
+<h1>cdb</h1>
+<a href="cdb/install.html">How to install cdb</a>
+<br><a href="cdb/cdbget.html">The cdbget program</a>
+<br><a href="cdb/cdbmake.html">The cdbmake and cdbdump programs</a>
+<br><a href="cdb/cdbstats.html">The cdbstats and cdbtest programs</a>
+<p>
+<a href="cdb/cdb.txt">The cdb format specification</a>
+<br><a href="cdb/reading.html">The cdb-reading library interface</a>
+<hr>
+cdb is discussed on the
+<a href="lists.html#cdb">cdb mailing list</a>.
+<p>
+<h2>What is it?</h2>
+cdb is a fast, reliable, simple package for creating and reading
+constant databases. Its database structure provides several features:
+<ul>
+<li>
+<b>Fast lookups:</b> A successful lookup in a large database normally takes
+just two disk accesses. An unsuccessful lookup takes only one.
+<li>
+<b>Low overhead:</b> A database uses 2048 bytes, plus 24 bytes per record,
+plus the space for keys and data.
+<li>
+<b>No random limits:</b> cdb can handle any database up to 4 gigabytes. There
+are no other restrictions; records don't even have to fit into memory.
+Databases are stored in a machine-independent format.
+<li>
+<b>Fast atomic database replacement:</b> cdbmake can rewrite an entire
+database two orders of magnitude faster than other hashing packages.
+<li>
+<b>Fast database dumps:</b> cdbdump prints the contents of a database in
+cdbmake-compatible format.
+</ul>
+cdb is designed to be used in mission-critical applications like e-mail.
+Database replacement is safe against system crashes. Readers don't have
+to pause during a rewrite.
+<h2>Information for distributors</h2>
+You may distribute unmodified copies of the cdb package.
+<p>
+Packages that need to read cdb files
+should incorporate the necessary portions of the cdb library
+rather than relying on an external cdb library.
+<h2>Related packages</h2>
+Tim Goodwin's
+<a href="http://www.perl.com/CPAN-local/modules/by-module/CDB_File/">CDB_File</a>
+is a Perl interface to cdb.
+<p>
+M. J. Pomraning's
+<a href="http://pilcrow.madison.wi.us">python-cdb</a>
+is a Python interface to cdb.
+<p>
+Kazuteru Okahashi's
+<a href="http://www.ruby-lang.org/raa/list.rhtml?id=539">ruby-cdb</a>
+is a Ruby interface to cdb.
+<p>
+Michael Alyn Miller's
+<a href="http://www.strangegizmo.com/software/sg-cdb/">sg-cdb</a>
+is a Java library to read cdb files.
+<p>
+Taj Khattra's
+<a href="http://pobox.com/~taj.khattra/luacdb.html">luacdb</a>
+is a Lua interface to cdb.
+<p>
+Felix von Leitner's
+<a href="http://www.math.fu-berlin.de/~leitner/rdb/">rdbm</a>
+combines cdb with a separate journal of database updates.
+<p>
+David Wilson's
+<a href="http://code.google.com/p/python-pure-cdb/">python-pure-cdb</a>
+is a Python reimplementation of cdb.
+<p>
+cdb is used in my
+<a href="djbdns.html">djbdns</a>,
+<a href="fastforward.html">fastforward</a>,
+<a href="mess822.html">mess822</a>,
+<a href="qmail.html">qmail</a>,
+and
+<a href="ucspi-tcp.html">ucspi-tcp</a>
+packages.
+</body>
+</html>

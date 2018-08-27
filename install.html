@@ -1,0 +1,82 @@
+<html>
+<body>
+<a href="../djb.html">D. J. Bernstein</a>
+<br><a href="../data.html">Data structures and program structures</a>
+<br><a href="../cdb.html">cdb</a>
+<h1>How to install cdb</h1>
+Like any other piece of software (and information generally),
+cdb comes with NO WARRANTY.
+<h2>System requirements</h2>
+cdb works only under UNIX.
+<h2>Installation</h2>
+Download the cdb package.
+The latest published cdb package is
+<a href="cdb-0.75.tar.gz">cdb-0.75.tar.gz</a>.
+<p>
+Unpack the cdb package:
+<pre>
+     gunzip cdb-0.75.tar
+     tar -xf cdb-0.75.tar
+     cd cdb-0.75
+</pre>
+<p>
+Compile the cdb programs:
+<pre>
+     make
+</pre>
+<p>
+As root, install the cdb programs
+under <tt>/usr/local</tt>:
+<pre>
+     make setup check
+</pre>
+<h2>Automatic tests</h2>
+You need the
+<a href="../daemontools/softlimit.html"><tt>softlimit</tt></a>
+program for these tests:
+<pre>
+     make rts
+     ./rts &gt; rts.out
+     cmp rts.out rts.exp
+</pre>
+Normally this prints nothing.
+<p>
+Beware that, starting with version 0.75,
+<tt>rts</tt> takes some time to run:
+e.g., 155 seconds on a Pentium II-350.
+(It writes three 4GB databases to <tt>/dev/null</tt>.)
+<h2>Manual tests</h2>
+Create a database from <tt>/etc/services</tt>:
+<pre>
+     ./cdbmake-sv test.cdb test.tmp < /etc/services
+</pre>
+Use
+<a href="cdbstats.html"><tt>cdbtest</tt></a>
+to test the database:
+<pre>
+     ./cdbtest < test.cdb
+</pre>
+The <tt>bad length</tt> and <tt>not found</tt> tallies should be 0.
+The <tt>different record</tt> tally should be 0 
+unless you have the same service
+listed on several lines in <tt>/etc/services</tt>.
+<p>
+Try retrieving particular records from the database:
+<pre>
+     ./cdbget smtp/tcp < test.cdb && echo ''
+     ./cdbget @25/tcp < test.cdb && echo ''
+</pre>
+Try printing some database statistics:
+<pre>
+     ./cdbstats < test.cdb
+</pre>
+The numbers should decrease rapidly past <tt>d0</tt>.
+<p>
+To report success:
+<pre>
+     ( echo 'First M. Last'; cat `cat SYSDEPS` ) \
+     | mail djb-sysdeps@cr.yp.to
+</pre>
+Replace <tt>First M. Last</tt> with your name.
+</body>
+</html>

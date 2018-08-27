@@ -1,0 +1,75 @@
+D. J. Bernstein
+Data structures and program structures
+cdb
+
+How to install cdb
+
+Like any other piece of software (and information generally), cdb comes with NO
+WARRANTY.
+
+System requirements
+
+cdb works only under UNIX.
+
+Installation
+
+Download the cdb package. The latest published cdb package is cdb-0.75.tar.gz.
+
+Unpack the cdb package:
+
+     gunzip cdb-0.75.tar
+     tar -xf cdb-0.75.tar
+     cd cdb-0.75
+
+Compile the cdb programs:
+
+     make
+
+As root, install the cdb programs under /usr/local:
+
+     make setup check
+
+Automatic tests
+
+You need the softlimit program for these tests:
+
+     make rts
+     ./rts > rts.out
+     cmp rts.out rts.exp
+
+Normally this prints nothing.
+
+Beware that, starting with version 0.75, rts takes some time to run: e.g., 155
+seconds on a Pentium II-350. (It writes three 4GB databases to /dev/null.)
+
+Manual tests
+
+Create a database from /etc/services:
+
+     ./cdbmake-sv test.cdb test.tmp < /etc/services
+
+Use cdbtest to test the database:
+
+     ./cdbtest < test.cdb
+
+The bad length and not found tallies should be 0. The different record tally
+should be 0 unless you have the same service listed on several lines in /etc/
+services.
+
+Try retrieving particular records from the database:
+
+     ./cdbget smtp/tcp < test.cdb && echo ''
+     ./cdbget @25/tcp < test.cdb && echo ''
+
+Try printing some database statistics:
+
+     ./cdbstats < test.cdb
+
+The numbers should decrease rapidly past d0.
+
+To report success:
+
+     ( echo 'First M. Last'; cat `cat SYSDEPS` ) \
+     | mail djb-sysdeps@cr.yp.to
+
+Replace First M. Last with your name.

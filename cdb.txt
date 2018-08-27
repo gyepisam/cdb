@@ -1,0 +1,61 @@
+D. J. Bernstein
+Data structures and program structures
+
+cdb
+
+How to install cdb
+The cdbget program
+The cdbmake and cdbdump programs
+The cdbstats and cdbtest programs
+
+The cdb format specification
+The cdb-reading library interface
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+cdb is discussed on the cdb mailing list.
+
+What is it?
+
+cdb is a fast, reliable, simple package for creating and reading constant
+databases. Its database structure provides several features:
+
+  • Fast lookups: A successful lookup in a large database normally takes just
+    two disk accesses. An unsuccessful lookup takes only one.
+  • Low overhead: A database uses 2048 bytes, plus 24 bytes per record, plus
+    the space for keys and data.
+  • No random limits: cdb can handle any database up to 4 gigabytes. There are
+    no other restrictions; records don't even have to fit into memory.
+    Databases are stored in a machine-independent format.
+  • Fast atomic database replacement: cdbmake can rewrite an entire database
+    two orders of magnitude faster than other hashing packages.
+  • Fast database dumps: cdbdump prints the contents of a database in
+    cdbmake-compatible format.
+
+cdb is designed to be used in mission-critical applications like e-mail.
+Database replacement is safe against system crashes. Readers don't have to
+pause during a rewrite.
+
+Information for distributors
+
+You may distribute unmodified copies of the cdb package.
+
+Packages that need to read cdb files should incorporate the necessary portions
+of the cdb library rather than relying on an external cdb library.
+
+Related packages
+
+Tim Goodwin's CDB_File is a Perl interface to cdb.
+
+M. J. Pomraning's python-cdb is a Python interface to cdb.
+
+Kazuteru Okahashi's ruby-cdb is a Ruby interface to cdb.
+
+Michael Alyn Miller's sg-cdb is a Java library to read cdb files.
+
+Taj Khattra's luacdb is a Lua interface to cdb.
+
+Felix von Leitner's rdbm combines cdb with a separate journal of database
+updates.
+
+David Wilson's python-pure-cdb is a Python reimplementation of cdb.
+
+cdb is used in my djbdns, fastforward, mess822, qmail, and ucspi-tcp packages.
