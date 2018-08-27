@@ -1,3 +1,16 @@
 *.o
 *.a
 *~
+auto-str
+auto_home.c
+cdbdump
+cdbget
+cdbmake
+cdbmake-12
+cdbmake-sv
+cdbstats
+cdbtest
+install
+instcheck
+rts
+testzero
