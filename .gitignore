@@ -15,3 +15,5 @@ instcheck
 rts
 testzero
 compile
+rts.out
+rts-tmp
