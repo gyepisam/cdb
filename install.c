@@ -1,9 +1,12 @@
+#include <unistd.h>
+#include <sys/stat.h>
 #include "buffer.h"
 #include "strerr.h"
 #include "error.h"
 #include "open.h"
 #include "readwrite.h"
 #include "exit.h"
+#include "install.h"
 
 extern void hier();
 

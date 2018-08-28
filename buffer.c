@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include "buffer.h"
 
 void buffer_init(buffer *s,io_op* op,int fd,char *buf,unsigned int len)

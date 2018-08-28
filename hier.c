@@ -1,4 +1,5 @@
 #include "auto_home.h"
+#include "install.h"
 
 void hier()
 {

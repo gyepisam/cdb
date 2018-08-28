@@ -1,3 +1,5 @@
+#include <unistd.h>
+#include <stdio.h>
 #include "error.h"
 #include "open.h"
 #include "strerr.h"

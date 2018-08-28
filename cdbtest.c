@@ -4,6 +4,7 @@
 #include "strerr.h"
 #include "seek.h"
 #include "cdb.h"
+#include "str.h"
 
 #define FATAL "cdbtest: fatal: "
 
@@ -108,7 +109,7 @@ int main()
     }
     while (dlen) { get(key,1); --dlen; }
   }
-  
+
   putnum("found: ",numfound);
   putnum("different record: ",numotherpos);
   putnum("bad length: ",numbadlen);
