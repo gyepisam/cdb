@@ -66,7 +66,7 @@ int mode;
   fdin = open_read(file);
   if (fdin == -1)
     strerr_die4sys(111,FATAL,"unable to read ",file,": ");
-  buffer_init(&ssin,read,fdin,inbuf,sizeof inbuf);
+  buffer_init(&ssin,readop,fdin,inbuf,sizeof inbuf);
 
   if (chdir(home) == -1)
     strerr_die4sys(111,FATAL,"unable to switch to ",home,": ");
@@ -76,7 +76,7 @@ int mode;
   fdout = open_trunc(file);
   if (fdout == -1)
     strerr_die6sys(111,FATAL,"unable to write .../",subdir,"/",file,": ");
-  buffer_init(&ssout,write,fdout,outbuf,sizeof outbuf);
+  buffer_init(&ssout,writeop,fdout,outbuf,sizeof outbuf);
 
   switch(buffer_copy(&ssout,&ssin)) {
     case -2:
@@ -118,7 +118,7 @@ int mode;
   fdout = open_trunc(file);
   if (fdout == -1)
     strerr_die6sys(111,FATAL,"unable to write .../",subdir,"/",file,": ");
-  buffer_init(&ssout,write,fdout,outbuf,sizeof outbuf);
+  buffer_init(&ssout,writeop,fdout,outbuf,sizeof outbuf);
 
   while (len-- > 0)
     if (buffer_put(&ssout,"",1) == -1)

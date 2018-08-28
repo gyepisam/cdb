@@ -1,7 +1,7 @@
 #ifndef READWRITE_H
 #define READWRITE_H
 
-extern int read();
-extern int write();
+int readop(int, char*, unsigned int);
+int writeop(int, char*, unsigned int);
 
 #endif

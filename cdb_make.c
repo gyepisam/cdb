@@ -15,7 +15,7 @@ int cdb_make_start(struct cdb_make *c,int fd)
   c->numentries = 0;
   c->fd = fd;
   c->pos = sizeof c->final;
-  buffer_init(&c->b,write,fd,c->bspace,sizeof c->bspace);
+  buffer_init(&c->b,writeop,fd,c->bspace,sizeof c->bspace);
   return seek_set(fd,c->pos);
 }
 

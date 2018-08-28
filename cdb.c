@@ -52,7 +52,7 @@ int cdb_read(struct cdb *c,char *buf,unsigned int len,uint32 pos)
     while (len > 0) {
       int r;
       do
-        r = read(c->fd,buf,len);
+        r = readop(c->fd,buf,len);
       while ((r == -1) && (errno == error_intr));
       if (r == -1) return -1;
       if (r == 0) goto FORMAT;

@@ -3,7 +3,7 @@
 #include "exit.h"
 
 char buf1[256];
-buffer ss1 = BUFFER_INIT(write,1,buf1,sizeof(buf1));
+buffer ss1 = BUFFER_INIT(writeop,1,buf1,sizeof(buf1));
 
 void puts(s)
 char *s;
