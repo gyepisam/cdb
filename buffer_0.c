@@ -4,7 +4,7 @@
 int buffer_0_read(fd,buf,len) int fd; char *buf; int len;
 {
   if (buffer_flush(buffer_1) == -1) return -1;
-  return read(fd,buf,len);
+  return readop(fd,buf,len);
 }
 
 char buffer_0_space[BUFFER_INSIZE];
