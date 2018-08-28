@@ -14,7 +14,7 @@ static char key[4];
 static char data[65536];
 struct cdb_make c;
 
-main(int argc,char **argv)
+int main(int argc,char **argv)
 {
   int fd;
   unsigned long loop;
