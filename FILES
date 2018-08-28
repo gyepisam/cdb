@@ -56,6 +56,7 @@ fmt.h
 fmt_ulong.c
 hier.c
 install.c
+install.h
 instcheck.c
 open.h
 open_read.c
