@@ -319,6 +319,14 @@ seek_cur.o
 	./makelib unix.a error.o open_read.o open_trunc.o \
 	error_str.o seek_set.o seek_cur.o
 
-.PHONY: clean
+.PHONY: clean test tests
 clean:
 	rm -f *.o *.a
+
+tests.sh:
+	perl maketests.pl > $@
+
+tests: tests.sh
+	env - PATH="`pwd`:$$PATH" sh $< 
+
+test: tests
